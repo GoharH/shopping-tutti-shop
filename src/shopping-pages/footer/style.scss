@@ -1,0 +1,81 @@
+@import "../../assets/style/variables.scss";
+.footer-section {
+    background-color: $blue;
+    padding: 25px 0px;
+    color: white;
+    font-size: 16px;
+    h3 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+}
+
+.touch-main,
+.newsletter-main {
+    margin-bottom: 20px;
+}
+
+.footer-input {
+    width: 205px;
+    height: 35px;
+    padding: 0px 10px;
+}
+
+.footer-input::placeholder {
+    color: $grey;
+}
+
+.footer-input-btn {
+    width: 80px;
+    height: 35px;
+    background-color: $yellow;
+    color: $blue;
+    font-weight: 500;
+}
+
+.quich-shop p,
+.my-account p {
+    content: ">";
+    margin: 8px 0px;
+}
+
+.quich-shop p::before,
+.my-account p::before {
+    content: ">";
+    font-size: 16px;
+    margin-right: 5px;
+    font-weight: 700;
+}
+
+h4 {
+    margin: 25px 0px 15px;
+}
+
+.footer-social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: $yellow;
+    color: $blue;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.footer-bottom-part {
+    border-top: 1px solid $grey;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+.footer-link {
+    color: $yellow;
+}
+
+.footer-payment-img {
+    display: block;
+    width: 280px;
+    height: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,93 @@
+@import "../../assets/style/variables.scss";
+.product-detales-section {
+    background-color: $grey-light;
+    padding: 25px 0px;
+}
+
+.product-img-slide {
+    width: 365px;
+    height: 390px;
+    background-color: $white;
+    padding: 25px;
+    margin-right: 30px;
+    .prod-slider-img {
+        width: 340px;
+        height: 340px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+        opacity: 1;
+        color: $blue;
+        -webkit-font-smoothing: antialiased;
+    }
+    .slick-dots li button:before {
+        margin-top: -15px;
+        font-size: 8px;
+        color: $blue;
+    }
+}
+
+.product-info-detales {
+    background-color: $white;
+    padding: 25px;
+    .prod-rating {
+        margin: 15px 0px;
+    }
+    .prod-price {
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .prod-text {
+        margin: 20px 0px;
+    }
+    .prod-radio-inputs {
+        margin-bottom: 15px;
+    }
+    .radio-input-label {
+        margin-right: 10px;
+    }
+    .radio-input-title {
+        font-weight: 500;
+        margin-right: 10px;
+    }
+    .prod-shop-card {
+        margin-top: 25px;
+        .prod-shop-num {
+            width: 40px;
+            height: 40px;
+            background-color: $grey-light;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+        .bg-color {
+            background-color: $yellow;
+        }
+        .prod-shop {
+            width: 145px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $yellow;
+            margin-left: 25px;
+        }
+        .prod-shop:hover {
+            background-color: $yellow-dark;
+        }
+        .prod-shop::before {
+            content: "\1F6D2";
+            //content: "\f07a";
+        }
+    }
+}
+
+.product-info-description {
+    background-color: $white;
+    padding: 20px 25px 25px;
+    margin-top: 30px;
+}

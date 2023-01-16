@@ -1,0 +1,58 @@
+@import "../../assets/style/variables.scss";
+.contact-section {
+    padding: 25px 0px;
+    color: $grey-dark;
+    background-color: $grey-light;
+    .contact-input {
+        margin: -15px;
+        padding: 20px;
+        background-color: white;
+        input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid $grey;
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        input:focus {
+            border: 1px solid $yellow;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            border: 1px solid $grey;
+            padding: 0px 10px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        textarea:focus {
+            border: 1px solid $yellow;
+        }
+        button {
+            width: 150px;
+            height: 35px;
+            background-color: $yellow;
+            color: $grey-dark;
+            font-weight: 500;
+        }
+        button:hover {
+            background-color: $yellow-dark;
+        }
+    }
+    .contact-map {
+        width: 100%;
+        background-color: white;
+        padding: 20px;
+        margin: -15px 0px 15px;
+        .contact-map-frame {
+            width: 100%;
+            height: 300px;
+        }
+    }
+    .contact-adress {
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+    }
+}
