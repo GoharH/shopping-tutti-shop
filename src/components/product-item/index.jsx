@@ -1,14 +1,14 @@
 import React from "react";
 import './style.scss';
 import StarRate from '../../components/star-rating';
-import product1 from '../../assets/images/product-1.jpg';
 
 
-const ProductItem = () => {
+
+const ProductItem = ({ productImg, productName, productPrice }) => {
 
     return <div className="product-box">
         <div className="hidden-cover">
-            <div className="product-image" style={{ backgroundImage: `url(${product1})` }}>
+            <div className="product-image" style={{ backgroundImage: `url(${productImg})` }}>
                 <div className="cover-none">
                     <div className="img-cover">
                         <span class="prod-icon icon-cart G-center"></span>
@@ -18,8 +18,8 @@ const ProductItem = () => {
             </div>
         </div>
         <div className="product-info">
-            <h3>Product Name</h3>
-            <p>$123.00</p>
+            <h3>{productName}</h3>
+            <p>{productPrice}</p>
             <div>
                 <StarRate />
             </div>

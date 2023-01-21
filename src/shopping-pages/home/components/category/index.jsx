@@ -1,15 +1,15 @@
 import React from "react";
 import './style.scss';
-import category1 from '../../../../assets/images/cat-1.jpg';
 
-const Category = () => {
+
+const Category = ({ categoryImg, categoryName, categoryText }) => {
     return <div className="category-box G-flex">
         <div className="image-box">
-            <div className="category-img" style={{ backgroundImage: `url(${category1})` }}></div>
+            <div className="category-img" style={{ backgroundImage: `url(${categoryImg})` }}></div>
         </div>
         <div className="category-text">
-            <h4 className="category-title">Category Name</h4>
-            <p>100 products</p>
+            <h4 className="category-title">{categoryName}</h4>
+            <p>{categoryText}</p>
         </div>
     </div>
 }

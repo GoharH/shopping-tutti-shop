@@ -1,7 +1,8 @@
 import React from "react";
 import './style.scss';
 import ProductItem from '../../components/product-item';
-import ProductDetales from '../product-detales'
+import ProductDetales from '../product-detales';
+import product1 from "../../assets/images/product-1.jpg"
 
 const FavoriteProducts = () => {
     return <div className="favorite-products-page">
@@ -12,11 +13,14 @@ const FavoriteProducts = () => {
                 </div>
                 <div className="favorite-product-list">
                     <div className="G-padding-25">
-                        <ProductItem />
+                        <ProductItem
+                            productImg={product1}
+                            productName='Product Name'
+                            productPrice='$123.00' />
                     </div>
                 </div>
             </div>
-            <ProductDetales />
+            {/* <ProductDetales /> */}
         </div>
     </div>
 }

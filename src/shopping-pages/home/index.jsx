@@ -16,6 +16,14 @@ import vendors8 from '../../assets/images/vendor-8.jpg';
 import Sales from "../../components/sales-part";
 import Category from "./components/category";
 import ProductItem from "../../components/product-item";
+import bgimage1 from "../../assets/images/offer-1.jpg";
+import bgimage2 from "../../assets/images/offer-2.jpg";
+import product1 from '../../assets/images/product-1.jpg';
+import product5 from '../../assets/images/product-3.jpg';
+import category1 from '../../assets/images/cat-1.jpg';
+import category2 from '../../assets/images/cat-2.jpg';
+import category3 from '../../assets/images/cat-3.jpg';
+import category4 from '../../assets/images/cat-4.jpg';
 
 const Home = () => {
     const settings = {
@@ -25,6 +33,15 @@ const Home = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
+
+    // function scrollNav() {
+    //     let header = document.getElementsByClassName('P-navigation')[0]
+    //     if (window.scrollY > 50) {
+    //         header.classList.add('P-active-header')
+    //     } else {
+    //         header.classList.remove('P-active-header')
+    //     }
+    // }
     return <div className="home-section">
         <div className="G-container">
             <div>
@@ -69,7 +86,13 @@ const Home = () => {
                                 </Slider>
                             </div>
                             <div className="sales-part">
-                                <Sales />
+                                <Sales bgimage={bgimage1}
+                                    saleText={'SAVE 20%'}
+                                    saleTitle={'Special Offer'} />
+                                <Sales
+                                    bgimage={bgimage2}
+                                    saleText={'SAVE 20%'}
+                                    saleTitle={'Special Offer'} />
                             </div>
                         </div>
                     </div>
@@ -106,16 +129,28 @@ const Home = () => {
                     </div>
                     <div className="categories-list G-flex">
                         <div className="G-padding-25">
-                            <Category />
+                            <Category
+                                categoryImg={category1}
+                                categoryName='Clothes'
+                                categoryText='100 products' />
                         </div>
                         <div className="G-padding-25">
-                            <Category />
+                            <Category
+                                categoryImg={category2}
+                                categoryName='Home'
+                                categoryText='105 products' />
                         </div>
                         <div className="G-padding-25">
-                            <Category />
+                            <Category
+                                categoryImg={category3}
+                                categoryName='Shoes'
+                                categoryText='110 products' />
                         </div>
                         <div className="G-padding-25">
-                            <Category />
+                            <Category
+                                categoryImg={category4}
+                                categoryName='Cosmetic'
+                                categoryText='115 products' />
                         </div>
                     </div>
                 </div>
@@ -126,28 +161,47 @@ const Home = () => {
                     <div className="featured-product-list G-flex">
                         <div className="G-padding-25">
                             <Link to='/product'>
-                                <ProductItem />
+                                <ProductItem
+                                    productImg={product1}
+                                    productName='Product Name'
+                                    productPrice='$123.00' />
                             </Link>
                         </div>
                         <div className="G-padding-25">
                             <Link to='/product'>
-                                <ProductItem />
+                                <ProductItem
+                                    productImg={product1}
+                                    productName='Product Name'
+                                    productPrice='$123.00' />
                             </Link>
                         </div>
                         <div className="G-padding-25">
                             <Link to='/product'>
-                                <ProductItem />
+                                <ProductItem
+                                    productImg={product1}
+                                    productName='Product Name'
+                                    productPrice='$123.00' />
                             </Link>
                         </div>
                         <div className="G-padding-25">
                             <Link to='/product'>
-                                <ProductItem />
+                                <ProductItem
+                                    productImg={product1}
+                                    productName='Product Name'
+                                    productPrice='$123.00' />
                             </Link>
                         </div>
                     </div>
                 </div>
                 <div className="sales">
-                    <Sales />
+                    <Sales
+                        bgimage={bgimage1}
+                        saleText={'SAVE 20%'}
+                        saleTitle={'Special Offer'} />
+                    <Sales
+                        bgimage={bgimage2}
+                        saleText={'SAVE 20%'}
+                        saleTitle={'Special Offer'} />
                 </div>
                 <div className="recent-product">
                     <div className="G-page-title-sec">
@@ -155,7 +209,10 @@ const Home = () => {
                     </div>
                     <div className="recent-product-list">
                         <div className="G-padding-25">
-                            <ProductItem />
+                            <ProductItem
+                                productImg={product5}
+                                productName='Product Name'
+                                productPrice='$123.00' />
                         </div>
                     </div>
                 </div>

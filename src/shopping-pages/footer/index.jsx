@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import './style.scss';
 import img from '../../assets/images/payments.png';
 import AddressInfo from "../../components/address-info";
+import CustomInput from "../../components/custom-input";
+
 
 const Footer = () => {
+    const [sign, setSign] = useState({
+        email: ''
+    })
 
+    const handleChange = (e) => {
+        setSign(e.target.name = e.target.value)
+    }
     return <div className="footer-section">
         <div className="G-container">
             <div className="G-flex">
@@ -43,11 +51,14 @@ const Footer = () => {
                         <p className="newsletter-main">
                             Duo stet tempor ipsum sit amet magna ipsum tempor est
                         </p>
-                        <div>
-                            <label>
-                                <input type="text" className="footer-input" placeholder="Your Email Address" />
-                                <button className="footer-input-btn">Sign Up</button>
-                            </label>
+                        <div className="G-flex">
+                            <CustomInput
+                                name={'email'}
+                                value={sign.email}
+                                placeholder="Your Email Address"
+                                onChange={handleChange}
+                                className='footer-input' />
+                            <button className="footer-input-btn">Sign Up</button>
                         </div>
                         <div>
                             <h4>FOLLOW US</h4>

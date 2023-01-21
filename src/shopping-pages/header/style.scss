@@ -41,6 +41,8 @@
     width: 100%;
     height: 70px;
     background-color: $blue;
+    //position: fixed;
+    z-index: 99;
     .header-categories {
         width: 350px;
         height: 70px;

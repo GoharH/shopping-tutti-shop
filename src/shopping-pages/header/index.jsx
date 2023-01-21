@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import CustomInput from "../../components/custom-input";
 import './style.scss';
 
 const Header = () => {
+    const [searchText, setSearchText] = useState({
+        search: ''
+    })
+    const handleChange = (e) => {
+        setSearchText(e.target.name = e.target.value)
+    }
+    const handleSearchClick = () => {
 
+    }
     return <>
         <div>
             <div className="G-container">
                 <div className="header-top G-flex" >
-                    <div className="header-logo G-flex">
-                        <span className="tutti">TUTTI</span>
-                        <span className="shop">SHOP</span>
-                    </div>
+                    <NavLink to={"/home"}>
+                        <div className="header-logo G-flex">
+                            <span className="tutti">TUTTI</span>
+                            <span className="shop">SHOP</span>
+                        </div>
+                    </NavLink>
                     <div className="header-search">
                         <div className="G-flex">
-                            <label>
-                                <input type="search" name="header-input" className="header-input" />
-                            </label>
-                            <button className=" header-search-icon icon-search_black_24dp "></button>
+                            <CustomInput
+                                name={'search'}
+                                className='header-input'
+                                value={searchText.search}
+                                placeholder="Search"
+                                onChange={handleChange}
+                                type={"search"} />
+                            {/* <label>
+                                <input type="search" value='Search' onChange={handleChange} name="header-input" className="header-input" />
+                            </label> */}
+                            <button onClick={handleSearchClick} className=" header-search-icon icon-search_black_24dp "></button>
                         </div>
                     </div>
                     <div className="header-contact">

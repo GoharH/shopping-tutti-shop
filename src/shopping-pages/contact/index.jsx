@@ -1,11 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import AddressInfo from "../../components/address-info";
 import './style.scss';
+import CustomInput from "../../components/custom-input";
+
 
 const Contact = () => {
+    const [message, setMessage] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    })
+    const [errorMessage, setErrorMessage] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    })
     const handleChange = (e) => {
-
+        setMessage({ ...message, [e.target.name]: e.target.value })
+        setErrorMessage({ ...errorMessage, [e.target.name]: '' })
     }
+    const validation = () => {
+        let isValidate = true
+        const newErrors = {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        }
+        if (!message.name.trim().length) {
+            newErrors.name = 'Fill Your name'
+            isValidate = false
+        }
+        if (!message.email.trim().length) {
+            newErrors.email = 'Fill Your email'
+            isValidate = false
+        }
+        if (!message.subject.trim().length) {
+            newErrors.subject = 'Fill a subject'
+            isValidate = false
+        }
+        if (!message.message.trim().length) {
+            newErrors.message = 'Fill a message'
+            isValidate = false
+        }
+        setErrorMessage(newErrors)
+        return true
+    }
+    const handleConfirmClick = () => {
+        if (validation()) {
+
+            setMessage({
+                name: '',
+                email: '',
+                subject: '',
+                message: ''
+            })
+        }
+    }
+
+
     return <div className="contact-section">
         <div className="G-container">
             <div>
@@ -13,19 +68,38 @@ const Contact = () => {
                 <div className="contact-main G-flex">
                     <div className="G-padding-50">
                         <div className="contact-input">
+                            {/* <label>
+                                <input type="text" name="name" value={message.name} placeholder="Your Name" onChange={handleChange} />
+                            </label> */}
+                            <CustomInput
+                                error={!!errorMessage.name}
+                                errorText={errorMessage.name}
+                                className='input'
+                                name={'name'}
+                                value={message.name}
+                                placeholder="Your Name"
+                                onChange={handleChange} />
+                            <CustomInput
+                                error={!!errorMessage.email}
+                                errorText={errorMessage.email}
+                                name={'email'}
+                                className='input'
+                                value={message.email}
+                                placeholder="Your Email"
+                                onChange={handleChange} />
+                            <CustomInput
+                                error={!!errorMessage.subject}
+                                errorText={errorMessage.subject}
+                                name={'subject'}
+                                className='input'
+                                value={message.subject}
+                                placeholder="Subject"
+                                onChange={handleChange} />
                             <label>
-                                <input type="text" name="name" placeholder="Your Name" onChange={handleChange} />
+                                <textarea type="text" name="message" value={message.message} placeholder="Message" onChange={handleChange} />
+                                {errorMessage ? <p className="error-text">{errorMessage.message}</p> : null}
                             </label>
-                            <label>
-                                <input type="email" placeholder="Your Email" />
-                            </label>
-                            <label>
-                                <input type="text" placeholder="Subject" />
-                            </label>
-                            <label>
-                                <textarea type="text" placeholder="Message" />
-                            </label>
-                            <button>Send Message</button>
+                            <button onClick={handleConfirmClick}>Send Message</button>
                         </div>
                     </div>
                     <div className="G-padding-50">
