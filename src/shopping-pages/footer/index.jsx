@@ -62,10 +62,10 @@ const Footer = () => {
                         </div>
                         <div>
                             <h4>FOLLOW US</h4>
-                            <span class="footer-social-icon icon-twitter"></span>
-                            <span class="footer-social-icon icon-facebook"></span>
-                            <span class="footer-social-icon icon-linkedin"></span>
-                            <span class="footer-social-icon icon-instagram"></span>
+                            <span className="footer-social-icon icon-twitter"></span>
+                            <span className="footer-social-icon icon-facebook"></span>
+                            <span className="footer-social-icon icon-linkedin"></span>
+                            <span className="footer-social-icon icon-instagram"></span>
                         </div>
                     </div>
                 </div>

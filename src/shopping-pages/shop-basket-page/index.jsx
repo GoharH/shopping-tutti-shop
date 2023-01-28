@@ -1,6 +1,7 @@
 import React from "react";
 import './style.scss';
 import product from '../../assets/images/product-3.jpg';
+import ShopProduct from './shop-basket-product';
 
 const ShopBasket = () => {
 
@@ -8,95 +9,21 @@ const ShopBasket = () => {
         <div className="G-container">
             <div className="G-flex">
                 <div className="card-products">
-                    <table>
-                        <tr className="table-header">
-                            <th>Products</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Remove</th>
-                        </tr>
-                        <tr className="shop-table-line">
-                            <td className="G-flex">
-                                <span className="shop-prod-img" style={{ backgroundImage: `url(${product})` }}></span>
-                                <p>Product Name</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td className="G-flex">
-                                <p className="shop-product-number bg-color">-</p>
-                                <p className="shop-product-number">1</p>
-                                <p className="shop-product-number bg-color">+</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td>
-                                <button className="prod-delete">x</button>
-                            </td>
-                        </tr>
-                        <tr className="shop-table-line">
-                            <td className="G-flex">
-                                <span className="shop-prod-img" style={{ backgroundImage: `url(${product})` }}></span>
-                                <p>Product Name</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td className="G-flex">
-                                <p className="shop-product-number bg-color">-</p>
-                                <p className="shop-product-number">1</p>
-                                <p className="shop-product-number bg-color">+</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td>
-                                <button className="prod-delete">x</button>
-                            </td>
-                        </tr>
-                        <tr className="shop-table-line">
-                            <td className="G-flex">
-                                <span className="shop-prod-img" style={{ backgroundImage: `url(${product})` }}></span>
-                                <p>Product Name</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td className="G-flex">
-                                <p className="shop-product-number bg-color">-</p>
-                                <p className="shop-product-number">1</p>
-                                <p className="shop-product-number bg-color">+</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td>
-                                <button className="prod-delete">x</button>
-                            </td>
-                        </tr>
-                        <tr className="shop-table-line">
-                            <td className="G-flex">
-                                <span className="shop-prod-img" style={{ backgroundImage: `url(${product})` }}></span>
-                                <p>Product Name</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td className="G-flex">
-                                <p className="shop-product-number bg-color">-</p>
-                                <p className="shop-product-number">1</p>
-                                <p className="shop-product-number bg-color">+</p>
-                            </td>
-                            <td>
-                                <p>$150</p>
-                            </td>
-                            <td>
-                                <button className="prod-delete">x</button>
-                            </td>
-                        </tr>
-                    </table>
+                    <ul className="table-header">
+                        <li>Products</li>
+                        <li>Price</li>
+                        <li>Quantity</li>
+                        <li>Total</li>
+                        <li>Remove</li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <ShopProduct product={product}
+                                productName='Product Name'
+                                productPrice="150"
+                                productTotalPrice='150' />
+                        </li>
+                    </ul>
                 </div>
                 <div className="shop-summery-part">
                     <div className="coupon-code-box">

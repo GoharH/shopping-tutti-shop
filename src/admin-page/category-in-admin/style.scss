@@ -1,0 +1,43 @@
+@import "../../assets/style/variables.scss";
+.G-page-section {
+    .G-page-header {
+        height: 60px;
+        border-bottom: 1px solid $blue;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+        .G-header-title {
+            color: $yellow;
+            font-size: 25px;
+        }
+    }
+    .G-page-scroll-body {
+        margin-top: 20px;
+        padding-left: 20px;
+        height: calc(100vh - 80px);
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    .G-page-btn {
+        position: relative;
+        button {
+            padding: 8px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $blue;
+            transition: 0.4s;
+            margin-bottom: 25px;
+            color: $white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: $yellow;
+            transition: 0.4s;
+        }
+    }
+    .G-page-creating {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

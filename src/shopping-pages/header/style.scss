@@ -35,6 +35,20 @@
         color: $yellow;
         background-color: $white;
     }
+    .login-btn {
+        width: 80px;
+        height: 35px;
+        border-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        color: $blue;
+        background-color: $yellow;
+    }
+    .login-btn:hover {
+        background-color: $yellow-dark;
+    }
 }
 
 .header-bottom {

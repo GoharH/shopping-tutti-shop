@@ -18,21 +18,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-    }
-    .shop-table-line {
-        width: 100%;
-        height: 60px;
-        padding: 10px 15px;
-        background-color: $white;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .shop-table-line td {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        font-weight: 600;
     }
     .shop-prod-img {
         width: 50px;
@@ -41,25 +27,6 @@
         background-position: center;
         background-size: cover;
         margin-right: 5px;
-    }
-    .shop-product-number {
-        width: 30px;
-        height: 30px;
-        background-color: $grey-light;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .bg-color {
-        background-color: $yellow;
-    }
-    .prod-delete {
-        width: 30px;
-        height: 30px;
-        background-color: $viva-magenta;
-        color: $white;
-        font-weight: 600;
-        font-size: 18px;
     }
 }
 

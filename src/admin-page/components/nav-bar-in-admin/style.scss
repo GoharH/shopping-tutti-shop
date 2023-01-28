@@ -1,0 +1,23 @@
+@import "src/assets/style/variables.scss";
+.G-navbar-block {
+    width: 200px;
+    height: 100vh;
+    border-right: 1px solid $blue;
+    padding: 20px 10px;
+    z-index: 1;
+}
+
+.nav-list {
+    padding-top: 35px;
+    li {
+        padding: 15px;
+    }
+    a {
+        color: $blue;
+        font-weight: 500;
+    }
+    a:active,
+    a:hover {
+        color: $yellow;
+    }
+}

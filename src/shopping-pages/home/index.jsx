@@ -1,7 +1,6 @@
 import React from "react";
 import './style.scss';
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
 import carousel1 from '../../assets/images/carousel-1.jpg';
 import carousel2 from '../../assets/images/carousel-2.jpg';
 import carousel3 from '../../assets/images/carousel-3.jpg';
@@ -24,6 +23,8 @@ import category1 from '../../assets/images/cat-1.jpg';
 import category2 from '../../assets/images/cat-2.jpg';
 import category3 from '../../assets/images/cat-3.jpg';
 import category4 from '../../assets/images/cat-4.jpg';
+import { useState } from "react";
+// import { useEffect } from "react";
 
 const Home = () => {
     const settings = {
@@ -33,15 +34,57 @@ const Home = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
+    const [category] = useState([
+        {
+            image: category1,
+            name: 'Clothes',
+            productText: '100 products'
+        },
+        {
+            image: category2,
+            name: 'Home',
+            productText: '105 products'
+        },
+        {
+            image: category3,
+            name: 'Shoes',
+            productText: '110 products'
+        },
+        {
+            image: category4,
+            name: 'Cosmetics',
+            productText: '115 products'
+        }
+    ])
+    const [product] = useState([
+        {
+            productImg: product1,
+            productName: 'Product Name',
+            productPrice: '$123.00'
+        },
+        {
+            productImg: product1,
+            productName: 'Product Name',
+            productPrice: '$123.00'
+        },
+        {
+            productImg: product1,
+            productName: 'Product Name',
+            productPrice: '$123.00'
+        },
+        {
+            productImg: product1,
+            productName: 'Product Name',
+            productPrice: '$123.00'
+        }
+    ])
 
-    // function scrollNav() {
-    //     let header = document.getElementsByClassName('P-navigation')[0]
-    //     if (window.scrollY > 50) {
-    //         header.classList.add('P-active-header')
-    //     } else {
-    //         header.classList.remove('P-active-header')
-    //     }
-    // }
+
+    // useEffect(() => {
+    //     setCategory(        )
+
+    // }, [])
+
     return <div className="home-section">
         <div className="G-container">
             <div>
@@ -100,25 +143,25 @@ const Home = () => {
                 <div className="advantages G-flex">
                     <div className="G-padding-25">
                         <div className="advantage-box">
-                            <span class="advantage-icon icon-clipboard"></span>
+                            <span className="advantage-icon icon-clipboard"></span>
                             <p>Quality Product</p>
                         </div>
                     </div>
                     <div className="G-padding-25">
                         <div className="advantage-box">
-                            <span class="advantage-icon icon-cart"></span>
+                            <span className="advantage-icon icon-cart"></span>
                             <p> Free Shipping</p>
                         </div>
                     </div>
                     <div className="G-padding-25">
                         <div className="advantage-box">
-                            <span class="advantage-icon icon-tab"></span>
+                            <span className="advantage-icon icon-tab"></span>
                             <p>14-Day Return</p>
                         </div>
                     </div>
                     <div className="G-padding-25">
                         <div className="advantage-box">
-                            <span class="advantage-icon icon-phone"></span>
+                            <span className="advantage-icon icon-phone"></span>
                             <p>24/7 Support</p>
                         </div>
                     </div>
@@ -128,30 +171,14 @@ const Home = () => {
                         <h2 className="G-page-title">CATEGORIES</h2>
                     </div>
                     <div className="categories-list G-flex">
-                        <div className="G-padding-25">
-                            <Category
-                                categoryImg={category1}
-                                categoryName='Clothes'
-                                categoryText='100 products' />
-                        </div>
-                        <div className="G-padding-25">
-                            <Category
-                                categoryImg={category2}
-                                categoryName='Home'
-                                categoryText='105 products' />
-                        </div>
-                        <div className="G-padding-25">
-                            <Category
-                                categoryImg={category3}
-                                categoryName='Shoes'
-                                categoryText='110 products' />
-                        </div>
-                        <div className="G-padding-25">
-                            <Category
-                                categoryImg={category4}
-                                categoryName='Cosmetic'
-                                categoryText='115 products' />
-                        </div>
+                        {category.map((item, index) => {
+                            return <Category
+                                item={item}
+                                key={index}
+                                categoryImg={item.image}
+                                categoryName={item.name}
+                                categoryText={item.productText} />
+                        })}
                     </div>
                 </div>
                 <div className="featured-products">
@@ -159,38 +186,15 @@ const Home = () => {
                         <h2 className="G-page-title">FEATURED PRODUCTS</h2>
                     </div>
                     <div className="featured-product-list G-flex">
-                        <div className="G-padding-25">
-                            <Link to='/product'>
-                                <ProductItem
-                                    productImg={product1}
-                                    productName='Product Name'
-                                    productPrice='$123.00' />
-                            </Link>
-                        </div>
-                        <div className="G-padding-25">
-                            <Link to='/product'>
-                                <ProductItem
-                                    productImg={product1}
-                                    productName='Product Name'
-                                    productPrice='$123.00' />
-                            </Link>
-                        </div>
-                        <div className="G-padding-25">
-                            <Link to='/product'>
-                                <ProductItem
-                                    productImg={product1}
-                                    productName='Product Name'
-                                    productPrice='$123.00' />
-                            </Link>
-                        </div>
-                        <div className="G-padding-25">
-                            <Link to='/product'>
-                                <ProductItem
-                                    productImg={product1}
-                                    productName='Product Name'
-                                    productPrice='$123.00' />
-                            </Link>
-                        </div>
+
+                        {product.map((item, index) => {
+                            return <ProductItem
+                                item={item}
+                                key={index}
+                                productImg={item.productImg}
+                                productName={item.productName}
+                                productPrice={item.productPrice} />
+                        })}
                     </div>
                 </div>
                 <div className="sales">

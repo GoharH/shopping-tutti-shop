@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import carousel1 from '../../assets/images/product-1.jpg'
 import StarRate from "../../components/star-rating";
 import ProductDescription from "./product-description";
-
+import StarRating from '../../components/star-rate1';
 
 const ProductDetales = () => {
     const settings = {
@@ -31,6 +31,7 @@ const ProductDetales = () => {
                     <h2>Product Name</h2>
                     <div className="prod-rating">
                         <StarRate />
+                        {/* <StarRating stars={stars} reviews={reviews} /> */}
                     </div>
                     <p className="prod-price">$150</p>
                     <p className="prod-text">
@@ -62,23 +63,23 @@ const ProductDetales = () => {
                     <div className="prod-radio-inputs G-flex">
                         <p className="radio-input-title">Color: </p>
                         <label className="radio-input-label G-flex">
-                            <input type="radio" name="prod-size" />
+                            <input type="radio" name="prod-color" />
                             <p>Black</p>
                         </label>
                         <label className="radio-input-label G-flex">
-                            <input type="radio" name="prod-size" />
+                            <input type="radio" name="prod-color" />
                             <p>White</p>
                         </label>
                         <label className="radio-input-label G-flex">
-                            <input type="radio" name="prod-size" />
+                            <input type="radio" name="prod-color" />
                             <p>Red</p>
                         </label>
                         <label className="radio-input-label G-flex">
-                            <input type="radio" name="prod-size" />
+                            <input type="radio" name="prod-color" />
                             <p>Blue</p>
                         </label>
                         <label className="radio-input-label G-flex">
-                            <input type="radio" name="prod-size" />
+                            <input type="radio" name="prod-color" />
                             <p>Green</p>
                         </label>
                     </div>

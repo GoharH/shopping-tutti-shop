@@ -42,6 +42,9 @@ const Header = () => {
                         <p>Customer Service</p>
                         <p>+012 345 6789</p>
                     </div>
+                    <Link to="/log-in">
+                        <button className="login-btn">Log In</button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -68,7 +71,7 @@ const Header = () => {
                                 <li>
                                     <Link to={"/favorite"}>
                                         <div className="G-flex">
-                                            <span class="header-icon icon-heart"></span>
+                                            <span className="header-icon icon-heart"></span>
                                             <p className="header-icon-num">0</p>
                                         </div>
                                     </Link>
@@ -76,7 +79,7 @@ const Header = () => {
                                 <li>
                                     <Link to={"/shop"}>
                                         <div className="G-flex">
-                                            <span class="header-icon icon-cart"></span>
+                                            <span className="header-icon icon-cart"></span>
                                             <p className="header-icon-num">0</p>
                                         </div>
                                     </Link>
