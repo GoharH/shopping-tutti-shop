@@ -1,8 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import './style.scss';
 
 
 const Category = ({ categoryImg, categoryName, categoryText }) => {
+    const categoryList = useSelector(state => state.CategoryReducer.categoryList)
+
+    console.log(categoryName)
     return <div className="G-padding-25">
         <div className="category-box G-flex">
             <div className="image-box">

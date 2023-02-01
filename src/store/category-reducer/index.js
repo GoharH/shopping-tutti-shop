@@ -3,13 +3,13 @@ const initialState = {
 }
 
 const CategoryReducer = (state = initialState, action) => {
+
+
     switch (action.type) {
         case 'ADD_CATEGORY':
             {
-                //console.log(action.payload)
-                return {...state, categoryList: [...state.categoryList, action.payload] }
+                return {...state, categoryList: [...action.payload] }
             }
-
 
         case 'DEL_CATEGORY':
             {

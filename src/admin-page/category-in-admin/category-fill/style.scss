@@ -1,0 +1,55 @@
+@import "../../../assets/style/variables.scss";
+.upload-image {
+    width: 150px;
+    height: 150px;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px 0px 20px;
+}
+
+.fill-form {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 5px;
+    flex-direction: column;
+    color: $blue;
+    h2 {
+        color: $yellow;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .add-image {
+        input {
+            display: none;
+        }
+        .icon-image {
+            font-size: 20px;
+            color: $blue;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .choose-img-text {
+            font-size: 15px;
+            color: $blue;
+            cursor: pointer;
+        }
+    }
+    .input {
+        border-radius: 5px;
+        height: 35px;
+        opacity: 0.7;
+    }
+    .create-btn {
+        width: 80px;
+        height: 35px;
+        background-color: $yellow;
+        color: $blue;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+    .create-btn:hover {
+        background-color: $yellow-dark;
+    }
+}

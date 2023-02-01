@@ -24,9 +24,12 @@ import category2 from '../../assets/images/cat-2.jpg';
 import category3 from '../../assets/images/cat-3.jpg';
 import category4 from '../../assets/images/cat-4.jpg';
 import { useState } from "react";
+import { useSelector } from "react-redux";
 // import { useEffect } from "react";
 
 const Home = () => {
+    const productList = useSelector(state => state.ProductReducer.productList)
+    const categoryList = useSelector(state => state.CategoryReducer.categoryList)
     const settings = {
         dots: true,
         infinite: true,

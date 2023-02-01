@@ -7,8 +7,8 @@ function App() {
 
   return <>
     {/* {token ? <AdminPage /> : <ShoppingPage />} */}
-    {/* <ShoppingPage /> */}
-    <AdminPage />
+    <ShoppingPage />
+    {/* <AdminPage /> */}
   </>
 }
 
