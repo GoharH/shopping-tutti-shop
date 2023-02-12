@@ -115,3 +115,8 @@
         background-size: cover;
     }
 }
+
+.featured-product-list,
+.recent-product-list {
+    flex-wrap: wrap;
+}

@@ -25,11 +25,35 @@ import category3 from '../../assets/images/cat-3.jpg';
 import category4 from '../../assets/images/cat-4.jpg';
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { useEffect } from "react";
 // import { useEffect } from "react";
 
 const Home = () => {
-    const productList = useSelector(state => state.ProductReducer.productList)
-    const categoryList = useSelector(state => state.CategoryReducer.categoryList)
+    const [category, setCategory] = useState([])
+    const [product, setProduct] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+
+    const getCategoryList = async () => {
+        setIsLoading(true)
+        const result = await axios.get('https://crudcrud.com/api/b76e3217f8604a86b57ef256676003df/categoryList')
+        if (result.data) {
+            //console.log(result , 'category')
+            setCategory(result.data)
+            setIsLoading(false)
+        }
+    }
+
+    const getProductList = async () => {
+        setIsLoading(true)
+        const result = await axios.get('https://crudcrud.com/api/b76e3217f8604a86b57ef256676003df/productList')
+        if (result.data) {
+            setProduct(result.data)
+            //  console.log(result.data, 'product')
+            setIsLoading(false)
+        }
+    }
+
     const settings = {
         dots: true,
         infinite: true,
@@ -37,56 +61,62 @@ const Home = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
-    const [category] = useState([
-        {
-            image: category1,
-            name: 'Clothes',
-            productText: '100 products'
-        },
-        {
-            image: category2,
-            name: 'Home',
-            productText: '105 products'
-        },
-        {
-            image: category3,
-            name: 'Shoes',
-            productText: '110 products'
-        },
-        {
-            image: category4,
-            name: 'Cosmetics',
-            productText: '115 products'
-        }
-    ])
-    const [product] = useState([
-        {
-            productImg: product1,
-            productName: 'Product Name',
-            productPrice: '$123.00'
-        },
-        {
-            productImg: product1,
-            productName: 'Product Name',
-            productPrice: '$123.00'
-        },
-        {
-            productImg: product1,
-            productName: 'Product Name',
-            productPrice: '$123.00'
-        },
-        {
-            productImg: product1,
-            productName: 'Product Name',
-            productPrice: '$123.00'
-        }
-    ])
+    // const [category] = useState([
+    //     {
+    //         image: category1,
+    //         name: 'Clothes',
+    //         productText: '100 products'
+    //     },
+    //     {
+    //         image: category2,
+    //         name: 'Home',
+    //         productText: '105 products'
+    //     },
+    //     {
+    //         image: category3,
+    //         name: 'Shoes',
+    //         productText: '110 products'
+    //     },
+    //     {
+    //         image: category4,
+    //         name: 'Cosmetics',
+    //         productText: '115 products'
+    //     }
+    // ])
+    // const [product] = useState([
+    //     {
+    //         productImg: product1,
+    //         productName: 'Product Name',
+    //         productPrice: '$123.00'
+    //     },
+    //     {
+    //         productImg: product1,
+    //         productName: 'Product Name',
+    //         productPrice: '$123.00'
+    //     },
+    //     {
+    //         productImg: product1,
+    //         productName: 'Product Name',
+    //         productPrice: '$123.00'
+    //     },
+    //     {
+    //         productImg: product1,
+    //         productName: 'Product Name',
+    //         productPrice: '$123.00'
+    //     }
+    // ])
+    const productNumInCategory = () => {
+
+    }
+    useEffect(() => {
+        getCategoryList()
+        getProductList()
+    }, [])
 
 
-    // useEffect(() => {
-    //     setCategory(        )
-
-    // }, [])
+    if (isLoading) {
+        return <div>loading.....</div>
+    }
 
     return <div className="home-section">
         <div className="G-container">
@@ -174,14 +204,16 @@ const Home = () => {
                         <h2 className="G-page-title">CATEGORIES</h2>
                     </div>
                     <div className="categories-list G-flex">
-                        {category.map((item, index) => {
+                        {category.length ? category.map((item, index) => {
                             return <Category
                                 item={item}
                                 key={index}
                                 categoryImg={item.image}
-                                categoryName={item.name}
-                                categoryText={item.productText} />
-                        })}
+                                categoryName={item.catName}
+                                categoryProductNumber={productNumInCategory()}
+                            />
+                        }) : <span>Loading....</span>}
+
                     </div>
                 </div>
                 <div className="featured-products">
@@ -190,14 +222,11 @@ const Home = () => {
                     </div>
                     <div className="featured-product-list G-flex">
 
-                        {product.map((item, index) => {
+                        {product.length ? product.map((item, index) => {
                             return <ProductItem
                                 item={item}
-                                key={index}
-                                productImg={item.productImg}
-                                productName={item.productName}
-                                productPrice={item.productPrice} />
-                        })}
+                                key={index} />
+                        }) : <span>Loading....</span>}
                     </div>
                 </div>
                 <div className="sales">
@@ -214,13 +243,12 @@ const Home = () => {
                     <div className="G-page-title-sec">
                         <h2 className="G-page-title">RECENT PRODUCTS</h2>
                     </div>
-                    <div className="recent-product-list">
-                        <div className="G-padding-25">
-                            <ProductItem
-                                productImg={product5}
-                                productName='Product Name'
-                                productPrice='$123.00' />
-                        </div>
+                    <div className="recent-product-list G-flex">
+                        {product.length ? product.map((item, index) => {
+                            return <ProductItem
+                                item={item}
+                                key={index} />
+                        }) : <span>Loading....</span>}
                     </div>
                 </div>
                 <div className="vendors G-justify-between">

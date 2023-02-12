@@ -1,4 +1,8 @@
 @import "../../assets/style/variables.scss";
+.product-box-padding {
+    padding: 25px;
+}
+
 .product-box {
     margin: -15px;
     display: inline-block;
@@ -14,14 +18,14 @@
 }
 
 .hidden-cover {
-    width: 325px;
-    height: 325px;
+    width: 155px;
+    height: auto;
     overflow: hidden;
 }
 
 .product-image {
-    width: 325px;
-    height: 325px;
+    width: 155px;
+    height: 155px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -55,8 +59,8 @@
 }
 
 .product-info {
-    width: 325px;
-    height: 135px;
+    width: 155px;
+    height: auto;
     padding: 24px 0px;
     background-color: $white;
     color: $grey-dark;
@@ -66,14 +70,17 @@
     align-items: center;
     h3 {
         font-size: 16px;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
     }
     h3:hover {
         color: $yellow;
     }
+    .prod-price {
+        font-size: 17px;
+    }
     p {
-        font-size: 20px;
-        margin-bottom: 8px;
+        font-size: 15px;
+        // margin-bottom: 6px;
         font-weight: 500;
     }
 }

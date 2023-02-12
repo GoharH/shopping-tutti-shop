@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../components/open-modal";
-import ProductForm from './product-fill';
+import ProductForm from './product-form';
 
 const ProductInAdmin = ({ title, btnTitle }) => {
     const productList = useSelector(state => state.ProductReducer.productList)
@@ -76,7 +76,7 @@ const ProductInAdmin = ({ title, btnTitle }) => {
                 </Modal> : null}
             </div>
         </div>
-
+        {/* Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea Nonumy */}
     </div>
 }
 export default ProductInAdmin

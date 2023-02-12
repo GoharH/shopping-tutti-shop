@@ -6,9 +6,9 @@ import Contact from '../shopping-pages/contact';
 import FavoriteProducts from '../shopping-pages/favorite-products';
 import ShopBasket from '../shopping-pages/shop-basket-page';
 import ProductDetales from '../shopping-pages/product-detales';
-import Login from '../registration/login';
+import Login from '../../src/registration/login';
 import { useState } from 'react';
-import Register from '../registration/register';
+import Register from '../../src/registration/register';
 
 
 function ShoppingPage() {
@@ -27,8 +27,9 @@ function ShoppingPage() {
             <Route path={"/contact"} element={<Contact />} />
             <Route path={"/favorite"} element={<FavoriteProducts />} />
             <Route path={"/shop"} element={<ShopBasket />} />
-            <Route path={"/product"} element={<ProductDetales />} />
-
+            <Route path={"/product/:id"} element={<ProductDetales />} />
+            <Route path={"/log-in"} element={<Login />} />
+            <Route path={"/registration"} element={<Register />} />
 
             <Route path='*' element={<Home />} />
         </Routes>

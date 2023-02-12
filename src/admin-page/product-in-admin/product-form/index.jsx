@@ -13,6 +13,7 @@ const ProductForm = ({ handleCloseModal, updateList, selected }) => {
         description: '',
         size: '',
         color: '',
+        category: ''
     })
     const [errorProduct, setErrorProduct] = useState({
         image: '',
@@ -21,6 +22,7 @@ const ProductForm = ({ handleCloseModal, updateList, selected }) => {
         description: '',
         size: '',
         color: '',
+        category: ''
     })
     const onImageChange = (element) => {
         var file = element.target.files[0];
@@ -42,6 +44,7 @@ const ProductForm = ({ handleCloseModal, updateList, selected }) => {
             description: '',
             size: '',
             color: '',
+            category: ''
         }
         if (!product.image) {
             newError.image = 'Choose an image'
@@ -83,7 +86,7 @@ const ProductForm = ({ handleCloseModal, updateList, selected }) => {
     const createProduct = async () => {
         setIsLoading(true)
         const result = await axios.post('https://crudcrud.com/api/b76e3217f8604a86b57ef256676003df/productList', product)
-        console.log(result + '1111')
+        // console.log(result + '1111')
         if (result.data) {
             setIsLoading(false)
             updateList()
@@ -149,6 +152,12 @@ const ProductForm = ({ handleCloseModal, updateList, selected }) => {
             name='color'
             value={product.color}
             //placeholder="Product Color"
+            onChange={handleChange} />
+        <CustomInput label='Product Category'
+            className='input'
+            errorText='Enter a category of the product'
+            name='category'
+            value={product.category}
             onChange={handleChange} />
         <button className="create-btn" onClick={handleSubmit}>{isLoading ? 'loading...' : product._id ? 'Update' : 'Create'}</button>
     </section>

@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import './style.scss';
 import Slider from "react-slick";
-import carousel1 from '../../assets/images/product-1.jpg'
+//import carousel1 from '../../assets/images/product-1.jpg'
 import StarRate from "../../components/star-rating";
 import ProductDescription from "./product-description";
-import StarRating from '../../components/star-rate1';
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+//import StarRating from '../../components/star-rate1';
 
-const ProductDetales = () => {
+const ProductDetales = ({ productImg, productName, productPrice, productDescript }) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -14,29 +17,52 @@ const ProductDetales = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
-    return <div className="product-detales-section">
+
+    const [isLoading, setIsLoading] = useState(false)
+    const [productData, setProductData] = useState(null)
+
+
+    const { id } = useParams()
+    console.log(id);
+
+    const getProductDetails = async () => {
+        setIsLoading(true)
+        const result = await axios.get(`https://crudcrud.com/api/b76e3217f8604a86b57ef256676003df/productList/${id}`)
+        if (result.data) {
+            console.log()
+            setProductData(result.data)
+            setIsLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        getProductDetails()
+    }, [])
+    if (isLoading) {
+        return <div>Loading....</div>
+    }
+
+    return productData && <div className="product-detales-section">
         <div className="G-container">
             <div className="G-flex">
                 <div className="product-img-slide">
                     <Slider {...settings}>
                         <div >
-                            <div style={{ backgroundImage: `url(${carousel1})` }} className='prod-slider-img'>  </div>
+                            <div style={{ backgroundImage: `url(${productData.image})` }} className='prod-slider-img'>  </div>
                         </div>
-                        <div >
-                            <div style={{ backgroundImage: `url(${carousel1})` }} className='prod-slider-img'>  </div>
-                        </div>
+                        {/* <div >
+                            <div style={{ backgroundImage: `url(${productImg})` }} className='prod-slider-img'>  </div>
+                        </div> */}
                     </Slider>
                 </div>
                 <div className="product-info-detales">
-                    <h2>Product Name</h2>
+                    <h2>{productData.prodName}</h2>
                     <div className="prod-rating">
                         <StarRate />
                         {/* <StarRating stars={stars} reviews={reviews} /> */}
                     </div>
-                    <p className="prod-price">$150</p>
-                    <p className="prod-text">
-                        Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea Nonumy
-                    </p>
+                    <p className="prod-price">${productData.price}</p>
+                    <p className="prod-text">{productData.description}</p>
                     <div className="prod-radio-inputs G-flex">
                         <p className="radio-input-title">Size: </p>
                         <label className="radio-input-label G-flex">

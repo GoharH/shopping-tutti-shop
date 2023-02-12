@@ -1,12 +1,14 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import './style.scss';
 
 
-const Category = ({ categoryImg, categoryName, categoryText }) => {
-    const categoryList = useSelector(state => state.CategoryReducer.categoryList)
+const Category = ({ categoryImg, categoryName, categoryProductNumber }) => {
 
-    console.log(categoryName)
+
+    //console.log(categoryName)
     return <div className="G-padding-25">
         <div className="category-box G-flex">
             <div className="image-box">
@@ -14,7 +16,7 @@ const Category = ({ categoryImg, categoryName, categoryText }) => {
             </div>
             <div className="category-text">
                 <h4 className="category-title">{categoryName}</h4>
-                <p>{categoryText}</p>
+                <p>{categoryProductNumber}</p>
             </div>
         </div>
     </div>

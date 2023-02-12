@@ -1,9 +1,13 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import CustomInput from "../../components/custom-input";
 import './style.scss';
 
 const Header = () => {
+    const [category, setCategory] = useState([])
+
     const [searchText, setSearchText] = useState({
         search: ''
     })
@@ -13,6 +17,18 @@ const Header = () => {
     const handleSearchClick = () => {
 
     }
+    const getCategoryList = async () => {
+        //setIsLoading(true)
+        const result = await axios.get('https://crudcrud.com/api/b76e3217f8604a86b57ef256676003df/categoryList')
+        if (result.data) {
+            setCategory(result.data)
+            // setIsLoading(false)
+        }
+    }
+    useEffect(() => {
+        getCategoryList()
+    }, [])
+
     return <>
         <div>
             <div className="G-container">
@@ -52,10 +68,13 @@ const Header = () => {
             <div className="G-container">
                 <div className="G-flex">
                     <select name="" id="" className="header-categories">
-                        <option value="">Categories</option>
+                        {/* <option value="">Categories</option>
                         <option value="">Woman</option>
                         <option value="">Man</option>
-                        <option value="">Kids</option>
+                        <option value="">Kids</option> */}
+                        {category.length ? category.map((item, index) => {
+                            return <option key={index} value="">{item.catName}</option>
+                        }) : null}
                     </select>
                     <div className="header-nav-left G-justify-between">
                         <ul className="navlist">

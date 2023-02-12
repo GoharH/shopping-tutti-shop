@@ -3,8 +3,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Modal from '../components/open-modal';
-import CategoryForm from "./category-fill";
+import CategoryForm from "./category-form";
 import './style.scss';
 
 const CategoryInAdmin = ({ title, btnTitle }) => {
@@ -12,6 +13,8 @@ const CategoryInAdmin = ({ title, btnTitle }) => {
     const dispatch = useDispatch()
     const [isOpen, setIsOpen] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState(null)
+    const [token, setToken] = useState('')
+    const navigate = useNavigate()
 
     const handleAddClick = () => {
         setIsOpen(true)
@@ -45,10 +48,23 @@ const CategoryInAdmin = ({ title, btnTitle }) => {
         console.log(categoryList)
         getCategoryList()
     }, [])
-
+    useEffect(() => {
+        const user = localStorage.getItem('token-user')
+        if (user) {
+            setToken(user)
+            navigate('/category-admin')
+        }
+    }, [])
+    const handleLogOut = () => {
+        //console.log(token)
+        setToken('')
+        console.log(token)
+        // navigate('/home')
+    }
     return <div className="G-page-section">
         <div className='G-page-header'>
             <h3 className="G-header-title">{title}</h3>
+            <button className="login-btn" onClick={handleLogOut}>Log out</button>
         </div>
         <div className="G-page-scroll-body">
             <div className="G-page-btn">
